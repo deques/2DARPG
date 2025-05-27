@@ -19,7 +19,9 @@ func _process(delta):
 	direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	direction.y = Input.get_action_strength("down") - Input.get_action_strength("up")
 	
-	velocity = direction * move_speed
+	# velocity = direction * move_speed
+	velocity = direction.normalized() * move_speed if direction != Vector2.ZERO else Vector2.ZERO
+
 	if (SetState() == true || SetDirection() == true):
 		UpdateAnimation()
 	pass
@@ -35,7 +37,7 @@ func SetDirection() -> bool:
 	if (direction.y == 0):
 		new_dir = Vector2.LEFT if (direction.x < 0) else Vector2.RIGHT
 	elif (direction.x == 0):
-		new_dir == Vector2.UP if (direction.y < 0) else Vector2.DOWN
+		new_dir = Vector2.UP if (direction.y < 0) else Vector2.DOWN
 		
 	if (new_dir == cardinal_direction):
 		return false
@@ -55,6 +57,7 @@ func SetState() -> bool:
 func UpdateAnimation() -> void:
 	var dir : String = AnimDirection()
 	animation_player.play(state + "_" + AnimDirection())
+	print(state + "_" + AnimDirection())
 	pass
 
 func AnimDirection() -> String:
