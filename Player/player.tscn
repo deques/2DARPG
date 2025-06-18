@@ -1,7 +1,8 @@
-[gd_scene load_steps=27 format=3 uid="uid://cqpthvam7pky2"]
+[gd_scene load_steps=28 format=3 uid="uid://cqpthvam7pky2"]
 
 [ext_resource type="Script" uid="uid://dch3h81ux4qyg" path="res://Player/Scripts/player.gd" id="1_4ntmi"]
 [ext_resource type="Texture2D" uid="uid://bs5ojum12pb7m" path="res://Player/Sprites/PlayerSprite02.png" id="2_k53q1"]
+[ext_resource type="Texture2D" uid="uid://tetspn5hkw85" path="res://Player/Sprites/Shadow.png" id="3_00tjw"]
 [ext_resource type="Script" uid="uid://c85owqf7cb5ym" path="res://Player/Scripts/player_state_machine.gd" id="3_btcbx"]
 [ext_resource type="Texture2D" uid="uid://dct02rtvgks1k" path="res://Player/Sprites/AttackSprite01.png" id="3_vtle1"]
 [ext_resource type="Script" uid="uid://cjc7i06uo0tn6" path="res://Player/Scripts/state_idle.gd" id="4_gwnis"]
@@ -436,6 +437,12 @@ position = Vector2(0, -21)
 texture = ExtResource("2_k53q1")
 hframes = 16
 vframes = 3
+
+[node name="ShadowSprite" type="Sprite2D" parent="Sprite2D"]
+modulate = Color(0, 0, 0, 0.552941)
+show_behind_parent = true
+position = Vector2(0, 21)
+texture = ExtResource("3_00tjw")
 
 [node name="AttackEffectSprite" type="Sprite2D" parent="Sprite2D"]
 position = Vector2(0, 10)
